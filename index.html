@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List con Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input v-model="newTodoText" placeholder="Aggiungi un todo">
+            <button @click="addTodo">Aggiungi</button>
+        </div>
+        <ul>
+            <li v-for="(todo, index) in todos" :key="index" class="todo-item">
+                <span :class="{ done: todo.done }">{{ todo.text }}</span>
+                <button @click="removeTodo(index)">x</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
